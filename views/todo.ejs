@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoApp</title>
+    <link rel="stylesheet" href="public/css/todo.css">
+</head>
+<body>
+    <header>
+        <div class="submit-form">
+            <input type="text" placeholder="Record your todoList item..." id="todo">
+            <a href="javascript:void(0)" id="add">+</a>
+        </div>
+    </header>
+    <div class="container">
+        <ul class="todoList">
+            <% todos.forEach(function (ele,index) {%>
+                <% if(!ele.done){ %>
+                <li class="todoItem">
+                    <p class="item-content"><%= ele.item %></p>
+                    <span class="item-delete" index="<%= ele.key %>">
+                        <a href="javascript:void(0)" ></a>
+                    </span>
+                    <span class="item-done">
+                        <a href="javascript:void(0)" ></a>
+                    </span>
+                </li>
+                <%}%>
+            <%})%>
+        </ul>
+        <ul class="doneList">
+        <% todos.forEach(function (ele) { %>
+            <% if(ele.done){ %>
+            <li class="todoItem">
+                <p class="item-content"><%= ele.item %></p>
+                <span class="item-delete" index="<%= ele.key %>">
+                    <a href="javascript:void(0)" ></a>
+                </span>
+                <span class="item-done">
+                    <a href="javascript:void(0)" ></a>
+                </span>
+            </li>
+            <%}%>
+        <% }) %>
+        </ul>
+    </div>
+</body>
+<script src="public/js/jquery.min.js"></script>
+<script src="public/js/todo.js"></script>
+</html>
